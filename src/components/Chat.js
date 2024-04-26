@@ -45,12 +45,15 @@ const Chat = () => {
               <h2 className="text-lg font-semibold mb-2">Chat Room</h2>
               <div className="space-y-2">
                 {documents.map((mesg, index) => (
-                  <div key={index} className="flex flex-col">
-                    <span className="font-bold">{mesg.user}</span>
-                    <span>{mesg.text}</span>
+                  <div key={index} className={`flex ${mesg.user === user[2] ? 'flex-row-reverse' : 'flex-row'} bg-gray-200 p-2`}>
+                    <div className={`flex flex-col ${mesg.user === user[2] ? 'items-end' : 'items-start'}`}>
+                      <span className="font-bold">{mesg.user}</span>
+                      <span>{mesg.text}</span>
+                    </div>
                   </div>
                 ))}
               </div>
+
               <div className="mt-4 flex items-center space-x-2">
                 <input
                   type="text"
